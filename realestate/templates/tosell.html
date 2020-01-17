@@ -1,0 +1,151 @@
+{% extends 'basic.html' %}
+
+{% load static %}
+{% static 'images' as baseUrl %}
+
+{% block title %}WANT-TO-SELL{% endblock %}
+
+{% block css %}
+
+h3{
+text-align: center;
+color: Red;
+}
+
+textarea{
+  width: auto;
+}
+
+{% endblock %}
+
+{% block body %}
+
+{% if user.is_authenticated %}
+
+<form class="form-horizontal" action='toSell' method="POST">
+
+    {% csrf_token %}
+
+  <fieldset>
+    <div id="legend">
+      <legend class="">Tell us {{user.first_name}}, and we will do the rest!</legend>
+    </div>
+
+      <div>
+        {% for message in messages %}
+        <h3>{{message}}</h3>
+        {% endfor %}
+    </div>
+
+
+
+      <div class="control-group">
+      <!-- Property Name -->
+        <label class="control-label"  for="propertyName">Property Name</label>
+      <div class="controls">
+        <input type="text" id="propertyName" name="propertyName" placeholder="" class="input-xlarge">
+
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Property City -->
+        <label class="control-label"  for="propertyCity">City</label>
+      <div class="controls">
+        <input type="text" id="propertyCity" name="propertyCity" placeholder="Where's your property located?" class="input-xlarge">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Contact Number -->
+      <label class="control-label" for="ownerContact">Contact Number</label>
+      <div class="controls">
+        <input type="text" id="ownerContact" name="ownerContact" placeholder="" class="input-xlarge">
+
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Property Type -->
+      <label class="control-label" for="propertyType">Type of Property</label>
+
+      <div class="controls">
+    <select id="propertyType" name="propertyType">
+      <option value="House">House</option>
+      <option value="Flat">Flat</option>
+      <option value="Bungalow">Bungalow</option>
+    </select>
+
+      </div>
+
+    </div>
+
+        <div class="control-group">
+      <!-- Business Type -->
+      <label class="control-label" for="businessType">Rent or Sell?</label>
+
+      <div class="controls">
+    <select id="businessType" name="businessType">
+      <option value="rent">Rent</option>
+      <option value="sell">Sell</option>
+    </select>
+
+      </div>
+
+    </div>
+
+        <div class="control-group">
+      <!-- Property Price -->
+      <label class="control-label" for="propertyPrice">Price</label>
+      <div class="controls">
+        <input type="text" id="propertyPrice" name="propertyPrice" placeholder="If on RENT, ENTER RENT PER MONTH" class="input-xlarge">
+
+      </div>
+    </div>
+
+
+    <div class="control-group">
+      <!-- Image -->
+      <label class="control-label" for="image">ONE PIC of your property</label>
+      <div class="controls">
+        <input type="file" id="image" name="image"  class="input-xlarge" accept="image/*">
+
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Property Description -->
+
+      <label class="control-label"  for="propertyDesc">Property Description</label>
+      <div class="controls">
+        <textarea cols="100" rows = "4" id="propertyDesc" name = "propertyDesc"></textarea>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <!-- Button -->
+      <div class="controls">
+        <button class="btn btn-success">Submit</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+
+{% else %}
+
+<h3>OOps! You are not Logged in. <a href="accounts/login">CLICK HERE !</a> </h3><br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends 'basic.html' %}
+
+{% load static %}
+{% static 'images' as baseUrl %}
+{% block title %}FOR-SALE-{{property.propertyName}}{% endblock %}
+
+{% block css %}
+hr.red {
+  border: 3px solid red;
+}
+
+{% endblock %}
+
+
+
+{% block body %}
+
+<div align="center">
+    <img src={{property.image.url}}>
+</div>
+
+<br>
+<br>
+
+
+<dl class="row">
+
+
+  <dt class="col-sm-3"><font size="+2">     NAME: </font></dt>
+  <dd class="col-sm-9"><font size="+2">     {{property.propertyName}}</font></dd>
+
+  <dt class="col-sm-3"></dt>
+  <dd class="col-sm-9"></dd>
+
+  <dt class="col-sm-3"><font size="+2">     OWNER: </font></dt>
+  <dd class="col-sm-9"><font size="+2">     {{property.propertyOwner}}</font></dd>
+
+  <dt class="col-sm-3"></dt>
+  <dd class="col-sm-9"></dd>
+
+
+  <dt class="col-sm-3"><font size="+2">     CITY: </font></dt>
+  <dd class="col-sm-9"><font size="+2">     {{property.propertyCity}}</font></dd>
+
+  <dt class="col-sm-3"></dt>
+  <dd class="col-sm-9"></dd>
+
+  <dt class="col-sm-3 text-truncate"><font size="+2">       TYPE: </font></dt>
+  <dd class="col-sm-9"><font size="+2">     {{property.propertyType}}</font></dd>
+
+  <dt class="col-sm-3"></dt>        <!-- for blank space -->
+  <dd class="col-sm-9"></dd>
+
+  <dt class="col-sm-3"></dt>
+  <dd class="col-sm-9"></dd>
+
+
+
+  <dt class="col-sm-3"><font size="+2">     DESCRIPTION: </font></dt>
+  <dd class="col-sm-9"><font size="+2">     {{property.propertyDesc}}</font></dd>
+
+  <dt class="col-sm-3"></dt>
+  <dd class="col-sm-9"></dd>
+
+  <dt class="col-sm-3"></dt>
+  <dd class="col-sm-9"></dd>
+
+  <dt class="col-sm-3"><font size="+2">     OWNER CONTACT: </font></dt>
+  <dd class="col-sm-9"><font size="+2">     {{property.ownerContact}}</font></dd>
+
+  <dt class="col-sm-3"></dt>
+  <dd class="col-sm-9"></dd>
+
+
+  <dt class="col-sm-3"><font size="+2">     PRICE: </font></dt>
+  <dd class="col-sm-9"><font size="+2">     Rs. {{property.propertyPrice}} /-</font></dd>
+
+
+
+</dl>
+
+<div align="center"><a href="/sold"> <button  class="btn btn-lg btn-success" type="submit">Contact Agent</button></a></div>
+
+<br>
+<br>
+
+<hr class="red">
+
+<br>
+<br>
+<br>
+
+{% endblock %}

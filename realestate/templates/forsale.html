@@ -1,0 +1,127 @@
+{% extends 'basic.html' %}
+
+{% load static %}
+{% static 'images' as baseUrl %}
+
+{% block css %}
+
+<!-- css for search -->
+.form-control-borderless {
+    border: none;
+}
+
+.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+/* Thick red border */
+hr.red {
+  border: 3px solid red;
+}
+
+/* Large rounded green border */
+hr.green {
+  border: 7px solid green;
+  border-radius: 5px;
+}
+
+
+h3 {
+  color: Red;
+}
+
+{% endblock %}
+
+{% block title %}FOR-SALE{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<div class="container">
+    <br/>
+	<div class="row justify-content-center">
+                        <div class="col-12 col-md-10 col-lg-8">
+                            <form action="/forsale" method="post" class="card card-sm">
+
+                                {% csrf_token %}
+
+     <div>
+        {% for message in messages %}
+        <h3>{{message}}</h3>
+        {% endfor %}
+     </div>
+
+                                <div class="card-body row no-gutters align-items-center">
+                                    <div class="col-auto">
+                                        <i class="fas fa-search h4 text-body"></i>
+                                    </div>
+                                    <!--end of col-->
+                                    <div class="col">
+                                        <input class="form-control form-control-lg form-control-borderless" name="searched_city" type="text" placeholder="Enter your City..">
+                                    </div>
+                                    <!--end of col-->
+                                    <div class="col-auto">
+                                        <button class="btn btn-lg btn-success" type="submit">Search</button>
+                                    </div>
+                                    <!--end of col-->
+                                </div>
+                            </form>
+                        </div>
+                        <!--end of col-->
+                    </div>
+</div>
+
+
+<!-- Images -->
+
+
+<br>
+
+<hr class="green">
+
+<br>
+<br>
+<br>
+
+{% for sellingProperty in sellingProperties %}
+
+<div align="center">
+    <img src={{sellingProperty.image.url}}>
+</div>
+
+<br>
+<br>
+
+
+<dl class="row">
+
+
+  <dt class="col-sm-3"><font size="+2">     NAME: </font></dt>
+  <dd class="col-sm-9"><font size="+2">     {{sellingProperty.propertyName}}</font></dd>
+
+  <dt class="col-sm-3"><font size="+2">     CITY: </font></dt>
+  <dd class="col-sm-9"><font size="+2">     {{sellingProperty.propertyCity}}</font></dd>
+
+    <dt class="col-sm-3 text-truncate"><font size="+2">       TYPE: </font></dt>
+    <dd class="col-sm-9"><font size="+2">     {{sellingProperty.propertyType}}</font></dd>
+
+
+
+</dl>
+
+<div align="center"><a href="/details/{{sellingProperty.id}}"><button id="sellingProperty.id" class="btn btn-lg btn-success" type="submit">Click For Further Details</button></a>  </div>
+
+<br>
+<br>
+
+<hr class="red">
+
+<br>
+<br>
+<br>
+
+
+{% endfor %}
+
+{% endblock %}

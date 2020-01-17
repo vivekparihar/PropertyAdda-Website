@@ -1,0 +1,511 @@
+{% load static %}
+{% static 'images' as baseUrl %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>{% block title %}{% endblock %}</title>
+
+<!-- favicon -->
+  <link rel="icon" href="{% static 'images/logo.jpeg'%}" type="image/icon type">
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+<!-- Bootstrap for search bar -->
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+  <!-- Bootstrap for Header -->
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+  <!-- Bootstrap for Carasouel -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+  <!-- Bootstrap for footer -->
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+  <!-- Bootstrap for registration form -->
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+  <!-- Bootstrap for Login -->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css">
+
+  <style>
+
+/* Style the body */
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+
+#header.header-scrolled {
+    background: #fff;
+    padding: 20px 0;
+    height: 72px;
+    transition: all 0.5s;
+}
+#header {
+    padding: 30px 0;
+    height: 92px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    transition: all 0.5s;
+    z-index: 997;
+    background-color: #fff;
+    box-shadow: 5px 0px 15px #c3c3c3;
+}
+#header #logo h1 {
+    font-size: 34px;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+#header #logo h1 a, #header #logo h1 a:hover {
+    color: #000;
+    padding-left: 10px;
+    border-left: 4px solid grey;
+}
+#nav-menu-container {
+    float: right;
+    margin: 0;
+}
+.nav-menu > li {
+    margin-left: 10px;
+}
+.nav-menu > li {
+    float: left;
+}
+.nav-menu li {
+    position: relative;
+    white-space: nowrap;
+}
+.nav-menu, .nav-menu * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.header-scrolled .nav-menu li:hover > a, .header-scrolled .nav-menu > .menu-active > a {
+    color: #18d26e;
+}
+.header-scrolled .nav-menu a {
+    color: black;
+}
+.nav-menu li:hover > a, .nav-menu > .menu-active > a {
+    color: #18d26e;
+}
+.nav-menu a {
+    padding: 0 8px 10px 8px;
+    text-decoration: none;
+    display: inline-block;
+    color: #000;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    outline: none;
+}
+#mobile-nav-toggle {
+    display: inline;
+}
+#mobile-nav-toggle {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 999;
+    margin: 20px 20px 0 0;
+    border: 0;
+    background: none;
+    font-size: 24px;
+    display: none;
+    transition: all 0.4s;
+    outline: none;
+    cursor: pointer;
+}
+#mobile-body-overly {
+    width: 100%;
+    height: 100%;
+    z-index: 997;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+}
+body.mobile-nav-active #mobile-nav {
+    left: 0;
+}
+#mobile-nav {
+    position: fixed;
+    top: 0;
+    padding-top: 18px;
+    bottom: 0;
+    z-index: 998;
+    background: rgba(0, 0, 0, 0.8);
+    left: -260px;
+    width: 260px;
+    overflow-y: auto;
+    transition: 0.4s;
+}
+#mobile-nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+#mobile-nav ul li {
+    position: relative;
+}
+#mobile-nav ul li a {
+    color: #fff;
+    font-size: 13px;
+    text-transform: uppercase;
+    overflow: hidden;
+    padding: 10px 22px 10px 15px;
+    position: relative;
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    outline: none;
+    font-weight: 700;
+    font-family: "Montserrat", sans-serif;
+}
+#mobile-nav ul .menu-has-children i.fa-chevron-up {
+    color: #18d26e;
+}
+#mobile-nav ul .menu-has-children i {
+    position: absolute;
+    right: 0;
+    z-index: 99;
+    padding: 15px;
+    cursor: pointer;
+    color: #fff;
+}
+#mobile-nav ul .menu-item-active {
+    color: #18d26e;
+}
+#mobile-nav ul li li {
+    padding-left: 30px;
+}
+
+.menu-has-children ul
+{display: none;}
+
+.sf-arrows .sf-with-ul {
+  padding-right: 30px;
+}
+
+.sf-arrows .sf-with-ul:after {
+  content: "\f107";
+  position: absolute;
+  right: 15px;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  color:black;
+}
+
+.sf-arrows ul .sf-with-ul:after {
+  content: "\f105";
+}
+
+
+.nav-menu li:hover > ul,
+.nav-menu li.sfHover > ul {
+  display: block;
+}
+.nav-menu ul {
+    margin: 4px 0 0 0;
+    padding: 10px;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+    background: #fff;
+}
+.nav-menu ul {
+    position: absolute;
+    display: none;
+    top: 100%;
+    left: 0;
+    z-index: 99;
+}
+
+.sf-arrows .sf-with-ul {
+    padding-right: 30px;
+}
+.nav-menu li {
+    position: relative;
+    white-space: nowrap;
+}
+
+
+@media (max-width: 768px){
+#nav-menu-container {
+    display: none;
+}
+
+#mobile-nav-toggle {
+    display: inline;
+}
+}
+
+
+
+.bg-primary {
+ background-color: #000 !important;
+}
+
+.bg-circle
+{
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  padding: 14px 4px;
+  color: #ececec;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.bg-circle-outline
+{
+  width: 50px;
+  height: 50px;
+  color:smoke;
+  padding: 8px 2px;
+  border: 2px solid;
+  border-color: smoke;
+  border-radius: 50%;
+}
+
+
+.bg-circle a, a:hover, .media a:focus
+{
+  text-decoration: none !important;
+  outline: none;
+  color: #ececec;
+}
+.bg-circle-outline a, a:hover, .media a:focus
+{
+  text-decoration: none !important;
+  outline: none;
+  color: #ececec;
+}
+
+h6 {
+  color: Black;
+}
+
+
+/* Page Content */
+.content {padding:20px;}
+
+
+
+{% block css %} {% endblock %}
+
+</style>
+
+
+</head>
+<body>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="/" class="scrollto">Property-Adda.com</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!--  <a href="/"><img src="{% static 'images/logo.jpg' %}" alt="" title="" /></a>  -->
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+
+
+
+          <li><a href="/">Home</a></li>
+
+          <li><a href="/forsale">For Sale</a></li>
+
+          <li><a href="/forrent">For Rent</a></li>
+
+        {% if user.is_authenticated %}
+          <li><h6>Hello, {{user.first_name}}</h6></li>
+
+          <li><a href="/accounts/logout">Logout</a></li>
+
+        {% else %}
+
+          <li><a href="/accounts/register">Register</a></li>
+
+          <li><a href="/accounts/login">Login</a> </li>
+        {% endif %}
+          <!-- Drop Down
+          <li class="menu-has-children"><a href="">Drop Down</a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+              <li><a href="#">Drop Down 5</a></li>
+            </ul>
+          </li>
+          -->
+
+        </ul>
+      </nav><!-- #nav-menu-container -->
+
+
+    </div>
+  </header><!-- #header -->
+
+<br>
+<br>
+
+<br>
+<br>  <!--For Space under Header -->
+<br>
+<br>
+<br>
+
+{% block body %}{% endblock %}
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<footer class="mt-5">
+  <div class="container-fluid bg-faded mt-5">
+    <div class="container">
+      <div class="row py-3">
+        <!-- footer column 1 start -->
+        <div class="col-md-4">
+          <!-- row start -->
+          <div class="row py-2">
+
+            <div class="col-sm-9">
+              <h4>Want to sell?</h4>
+              <a href="/toSell">CLICK HERE!</a>
+            </div>
+          </div>
+          <!-- row end -->
+        </div>
+        <!-- footer column 1 end -->
+        <!-- footer column 2 start -->
+        <div class="col-md-4">
+          <!-- row start -->
+          <div class="row py-2">
+            <div class="col-sm-3 hidden-md-down">
+              <a class="bg-circle bg-info" href="#">
+                <i class="fa fa-2x fa-fw fa-address-card" aria-hidden="true "></i>
+              </a>
+            </div>
+            <div class="col-sm-9">
+              <h4>Contact us</h4>
+              <p>Why not?</p>
+            </div>
+          </div>
+          <!-- row end -->
+          <!-- row start -->
+          <div class="row py-2">
+
+
+          </div>
+          <!-- row end -->
+        </div>
+        <!-- footer column 2 end -->
+        <!-- footer column 3 start -->
+        <div class="col-md-4">
+          <!-- row starting  -->
+          <div class="row py-2">
+            <div class="col-sm-3 hidden-md-down">
+              <a class="bg-circle bg-info" href="# ">
+                <i class="fa fa-2x fa-fw fa-info" aria-hidden="true "></i>
+              </a>
+            </div>
+            <div class="col-sm-9">
+              <h4>Info</h4>
+              <p> About Us</p>
+
+            </div>
+          </div>
+          <!-- row ended -->
+          <!-- row starting  -->
+          <div class="row py-2">
+
+
+          </div>
+          <!-- row ended -->
+        </div>
+        <!-- footer column 3 end -->
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container-fluid bg-primary py-3">
+    <div class="container">
+      <div class="row py-3">
+        <div class="col-md-9">
+          <p class="text-white">"No One Has More Experience Or Expertise
+            To Help You Than An Agent Who Is A Realtor" </p>
+        </div>
+        <div class="col-md-3">
+          <div class="d-inline-block">
+            <div class="bg-circle-outline d-inline-block">
+              <a href="https://www.facebook.com/" class="text-white"><i class="fa fa-2x fa-fw fa-facebook"></i>
+		</a>
+            </div>
+
+            <div class="bg-circle-outline d-inline-block">
+              <a href="https://twitter.com/" class="text-white">
+                <i class="fa fa-2x fa-fw fa-twitter"></i></a>
+            </div>
+
+            <div class="bg-circle-outline d-inline-block">
+              <a href="https://www.linkedin.com/company/" class="text-white">
+                <i class="fa fa-2x fa-fw fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body>
+
+
+</html>

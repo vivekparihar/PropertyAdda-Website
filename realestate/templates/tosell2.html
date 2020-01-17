@@ -1,0 +1,35 @@
+{% extends 'basic.html' %}
+
+{% load static %}
+{% static 'images' as baseUrl %}
+
+{% block css %}
+
+h3{
+text-align: center;
+color: Green;
+}
+
+textarea{
+  width: auto;
+}
+
+{% endblock %}
+
+
+{% block body %}
+
+<h3>Thanks for joining us. We will contact you soon {{user.first_name}}</h3>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'basic.html' %}
+
+{% load static %}
+{% static 'images' as baseUrl %}
+{% block title %}CONTACTED{% endblock %}
+
+
+
+{% block body %}
+
+{% if user.is_authenticated %}
+
+<h3 align="center" style="color:green">Thanks for showing your interest in our property. We will contact you soon.</h3>
+<br>
+<h4 align="center">Contact Number: (665) - 2248239</h4>
+<br>
+<h4 align="center">Email: support@propertyadda.com</h4>
+
+<br>
+<br>
+<br>
+<br>
+
+{% else %}
+
+<h3 align="center" style="color:red">OOps! You are not Logged in. <a href="accounts/login">CLICK HERE !</a> </h3><br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+{% endif %}
+{% endblock %}
